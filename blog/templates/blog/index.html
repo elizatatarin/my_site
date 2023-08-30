@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    My Blog
+{% endblock %}    
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static "blog/post.css" %}" />
+    <link rel="stylesheet" href="{% static "blog/index.css" %}" />
+{% endblock %}    
+
+{% block content %}
+    <section id="welcome">
+        <header>
+            <img src="{% static "blog/images/eliza.jpg" %}" alt="Eliza - The Autor Of This Blog"/>
+            <h2>ELIZA`S BLOG</h2>
+        </header>
+        <p>Hi, I am Eliza and it`s my blog about trevelling!</p>    
+    </section>  
+    
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+
+        <ul>
+            {% for post in posts%}
+                {% include "blog/includes/post.html" %}
+            {% endfor %}
+        <ul>                    
+    </section>   
+    
+    <section id="about">
+        <h2>More about me and my plans</h2>
+        <p>In general, I`m really fond of travellin. So, I have plans to visit as much as possible countries. 
+            I would like to visit all the countries of the world, because it is so beautiful and with each new
+            place you discover a lot for yourself, meet new people, learn the traditions and customs of foreigners,
+            taste the local cuisine and just fill up!
+        </p>
+    </section>    
+{% endblock %}    
